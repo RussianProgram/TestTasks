@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{%block title%} Home Page {%endblock%}
+
+{% block content %}
+<h1>Home Page</h1>
+{% if request.user.is_authenticated %}
+    <h2>Your group is {{ request.user.groups.last}}</h2>
+
+    <h3>Yours hosts list</h3>
+    {% for host in hosts %}
+        <ul>
+            <li>{{ host.ip }}:{{ host.port }} | Owners [{{ host.get_owners }}] | Resource: {{ host.resource }}</li>
+            <a href="{% url "user_update_host" host.id %}">Modify this host</a> Or <a href="{% url "user_delete_host" host.id %}">Delete Host</a>
+
+        </ul>
+
+    {% endfor %}
+
+    <a href="{% url "user_create_host" %}"><h3>Create a Host!</h3></a>
+
+
+
+{% endif %}
+{% endblock %}
