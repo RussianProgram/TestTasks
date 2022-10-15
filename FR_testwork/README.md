@@ -1,5 +1,5 @@
 # FR_testwork
-Testwork for Fabrika
+Testwork for Fabrika [OLD]
 
 ## Как запустить
 ### Первоначальная установка 
